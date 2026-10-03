@@ -62,7 +62,7 @@ more than the public activity below.
 - [athenz-agent](https://github.com/hmdsefi/athenz-agent): sidecar that wraps Athenz ZPE
   and ZPU, so services can use Athenz without extra code.
 - [vault-eth-signer](https://github.com/Brahma-fi/vault-eth-signer) (contributor):
-  HashiCorp Vault plugin that signs with secp256k1 keys, so Vault works as a software HSM
+  HashiCorp Vault plugin that signs with secp256k1 keys, so Vault works as a software  HSM
   for Ethereum.
 
 ## Contact

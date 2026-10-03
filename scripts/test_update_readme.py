@@ -80,18 +80,78 @@ class EscapeTest(unittest.TestCase):
         self.assertEqual(ur.escape("fix `a_b"), r"fix \`a\_b")
 
 
+def release(tag, published_at):
+    return {
+        "tag_name": tag,
+        "html_url": f"https://github.com/hmdsefi/gograph/releases/tag/{tag}",
+        "published_at": published_at,
+    }
+
+
+def milestone(number, title, due_on, description):
+    return {
+        "title": title,
+        "html_url": f"https://github.com/hmdsefi/gograph/milestone/{number}",
+        "due_on": due_on,
+        "description": description,
+    }
+
+
+class GographStatusTest(unittest.TestCase):
+    def test_release_and_earliest_upcoming_milestone(self):
+        milestones = [
+            milestone(1, "v0.9.0", "2026-10-27T00:00:00Z", "Dependency graph toolkit: section 4."),
+            milestone(3, "v0.11.0", "2026-12-08T00:00:00Z", "Routes and bounded search. Freeze."),
+            milestone(2, "v0.10.0", "2026-11-17T00:00:00Z", "Foundations and performance: section 3."),
+        ]
+        # The v0.9.0 milestone is still open right after the release, so it isn't "next".
+        self.assertEqual(
+            ur.gograph_status(release("v0.9.0", "2026-10-27T11:31:00Z"), milestones),
+            "[v0.9.0](https://github.com/hmdsefi/gograph/releases/tag/v0.9.0) shipped on October 27."
+            " Next is [v0.10.0](https://github.com/hmdsefi/gograph/milestone/2), due November 17:"
+            " Foundations and performance.",
+        )
+
+    def test_no_open_milestones(self):
+        self.assertEqual(
+            ur.gograph_status(release("v0.8.2", "2026-10-02T11:31:00Z"), []),
+            "[v0.8.2](https://github.com/hmdsefi/gograph/releases/tag/v0.8.2) shipped on October 2.",
+        )
+
+    def test_milestone_without_due_date_or_description(self):
+        status = ur.gograph_status(
+            release("v0.8.2", "2026-10-02T11:31:00Z"), [milestone(1, "v0.9.0", None, "")]
+        )
+        self.assertTrue(status.endswith(" Next is [v0.9.0](https://github.com/hmdsefi/gograph/milestone/1)."))
+
+
+class ThemeTest(unittest.TestCase):
+    def test_theme(self):
+        cases = {
+            "Dependency graph toolkit: section 4 of the roadmap": "Dependency graph toolkit",
+            "Routes and bounded search. Feature freeze Thu Dec 3": "Routes and bounded search",
+            "Go 1.26 minimum: raise the floor": "Go 1.26 minimum",
+            "[CI] and `go vet`: more": r"\[CI\] and `go vet`",
+            "": "",
+            None: "",
+        }
+        for description, want in cases.items():
+            with self.subTest(description=description):
+                self.assertEqual(ur.theme(description), want)
+
+
 class ReplaceSectionTest(unittest.TestCase):
     def test_replaces_only_between_markers(self):
-        readme = f"intro\n{ur.START}\nold\n{ur.END}\noutro\n"
+        readme = "intro <!-- x:start -->old<!-- x:end --> outro\n"
         self.assertEqual(
-            ur.replace_section(readme, "new"),
-            f"intro\n{ur.START}\nnew\n{ur.END}\noutro\n",
+            ur.replace_section(readme, "x", "new"),
+            "intro <!-- x:start -->new<!-- x:end --> outro\n",
         )
 
     def test_missing_or_misordered_markers(self):
-        for readme in ("no markers", f"{ur.START}\nonly start", f"{ur.END}\n{ur.START}"):
+        for readme in ("no markers", "<!-- x:start -->only start", "<!-- x:end --><!-- x:start -->"):
             with self.subTest(readme=readme), self.assertRaises(ValueError):
-                ur.replace_section(readme, "new")
+                ur.replace_section(readme, "x", "new")
 
 
 if __name__ == "__main__":

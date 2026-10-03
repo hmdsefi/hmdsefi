@@ -10,13 +10,10 @@ more than the public activity below.
 
 ## Now
 
-- **[gograph](https://github.com/hmdsefi/gograph)**:
-  [v0.8.2](https://github.com/hmdsefi/gograph/releases/tag/v0.8.2) shipped on October 2
-  with four bug fixes. Next is [v0.9.0](https://github.com/hmdsefi/gograph/milestone/1),
-  due October 27, which adds a dependency graph toolkit: condensation into a DAG, Graphviz
-  DOT export, topological levels, critical paths and induced subgraphs. Contributions are
-  welcome, and [CONTRIBUTING.md](https://github.com/hmdsefi/gograph/blob/master/CONTRIBUTING.md)
-  explains where to start.
+- **[gograph](https://github.com/hmdsefi/gograph)**: <!-- gograph:start -->[v0.8.2](https://github.com/hmdsefi/gograph/releases/tag/v0.8.2) shipped on October 2. Next is [v0.9.0](https://github.com/hmdsefi/gograph/milestone/1), due October 27: Dependency graph toolkit.<!-- gograph:end -->
+  Contributions are welcome, and
+  [CONTRIBUTING.md](https://github.com/hmdsefi/gograph/blob/master/CONTRIBUTING.md) explains
+  where to start.
 - **Upstream fixes** in Go infrastructure projects, mostly race conditions, error handling
   and tests that had been switched off. The latest are listed below.
 

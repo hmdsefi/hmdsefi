@@ -17,7 +17,7 @@ jobs:
       - name: Test the update script
         run: python3 -m unittest discover -s scripts
 
-      - name: Update the recent pull requests
+      - name: Update the generated parts of the README
         run: python3 scripts/update_readme.py
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -30,5 +30,5 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "Update recent pull requests"
+          git commit -am "Update the generated parts of the README"
           git push

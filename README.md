@@ -20,21 +20,22 @@ more than the public activity below.
 ## Recent upstream contributions
 
 <!-- recent-prs:start -->
+- <img src="https://github.com/llm-d.png?size=32" width="16" height="16" alt=""> **llm-d/llm-d-router**
+  - fix(sidecar): record stage metrics in the P2P connector ([#3093](https://github.com/llm-d/llm-d-router/pull/3093))
+  - fix(sidecar): recover a streamed decode-first abort in shared storage ([#3120](https://github.com/llm-d/llm-d-router/pull/3120))
+  - fix(sidecar): keep discarded decode-first headers out of the response ([#3121](https://github.com/llm-d/llm-d-router/pull/3121))
 - <img src="https://github.com/vllm-project.png?size=32" width="16" height="16" alt=""> **vllm-project/aibrix**
   - \[Bug\] Use the full selector and owner check in RayClusterReplicaSet ([#2893](https://github.com/vllm-project/aibrix/pull/2893))
   - \[Bug\] Fix TOS V1 download when part\_chunksize is not set ([#2895](https://github.com/vllm-project/aibrix/pull/2895))
   - \[CI\] Run integration-tagged controller tests in CI ([#2896](https://github.com/vllm-project/aibrix/pull/2896))
-  - \[Bug\] Keep prefix cache blocks dirty when they change during a delta push ([#2877](https://github.com/vllm-project/aibrix/pull/2877))
 - <img src="https://github.com/maximhq.png?size=32" width="16" height="16" alt=""> **maximhq/bifrost**
   - \[fix\]: send assistant role once on converted chat streams ([#7699](https://github.com/maximhq/bifrost/pull/7699))
   - \[fix\]: use provider-reported cost for transcription pricing ([#7825](https://github.com/maximhq/bifrost/pull/7825))
 - <img src="https://github.com/hyperledger.png?size=32" width="16" height="16" alt=""> **hyperledger/fabric**
   - Reject key-level endorsement policies that cannot be parsed ([#5598](https://github.com/hyperledger/fabric/pull/5598))
   - Don't send the invalid block ID error twice in the participation API ([#5597](https://github.com/hyperledger/fabric/pull/5597))
-  - Stop the follower chain when the channel membership check fails ([#5595](https://github.com/hyperledger/fabric/pull/5595))
-  - Fix a race between starting and stopping the delivery service ([#5591](https://github.com/hyperledger/fabric/pull/5591))
 
-Plus [13 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests).
+Plus [10 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests).
 <!-- recent-prs:end -->
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests)

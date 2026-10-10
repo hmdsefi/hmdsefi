@@ -20,6 +20,8 @@ more than the public activity below.
 ## Recent upstream contributions
 
 <!-- recent-prs:start -->
+- <img src="https://github.com/k8sgpt-ai.png?size=32" width="16" height="16" alt=""> **k8sgpt-ai/k8sgpt**
+  - fix: honor matchExpressions in NetworkPolicy pod selectors ([#1818](https://github.com/k8sgpt-ai/k8sgpt/pull/1818))
 - <img src="https://github.com/vllm-project.png?size=32" width="16" height="16" alt=""> **vllm-project/aibrix**
   - \[Bug\] Keep a one-block prefix match from scoring zero ([#2943](https://github.com/vllm-project/aibrix/pull/2943))
   - \[Bug\] Skip LRU eviction when the interval is not positive ([#2944](https://github.com/vllm-project/aibrix/pull/2944))
@@ -32,10 +34,8 @@ more than the public activity below.
   - fix(mcp): omit empty completion context arguments ([#1024](https://github.com/mark3labs/mcp-go/pull/1024))
 - <img src="https://github.com/hyperledger.png?size=32" width="16" height="16" alt=""> **hyperledger/fabric**
   - Reject illegal channel IDs in configtxgen ([#5609](https://github.com/hyperledger/fabric/pull/5609))
-- <img src="https://github.com/llm-d.png?size=32" width="16" height="16" alt=""> **llm-d/llm-d-router**
-  - fix(sidecar): record stage metrics in the P2P connector ([#3093](https://github.com/llm-d/llm-d-router/pull/3093))
 
-Plus [13 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests).
+Plus [12 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests).
 <!-- recent-prs:end -->
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests)

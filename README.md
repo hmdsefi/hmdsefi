@@ -20,22 +20,22 @@ more than the public activity below.
 ## Recent upstream contributions
 
 <!-- recent-prs:start -->
+- <img src="https://github.com/vllm-project.png?size=32" width="16" height="16" alt=""> **vllm-project/aibrix**
+  - \[Bug\] Keep a one-block prefix match from scoring zero ([#2943](https://github.com/vllm-project/aibrix/pull/2943))
+  - \[Bug\] Skip LRU eviction when the interval is not positive ([#2944](https://github.com/vllm-project/aibrix/pull/2944))
+  - \[Feat\] Report how many prefix blocks are cached ([#2945](https://github.com/vllm-project/aibrix/pull/2945))
 - <img src="https://github.com/mark3labs.png?size=32" width="16" height="16" alt=""> **mark3labs/mcp-go**
   - fix(server): treat a non-positive pagination limit as no paging ([#1047](https://github.com/mark3labs/mcp-go/pull/1047))
   - fix(mcp): keep structuredContent on tool\_result content ([#1031](https://github.com/mark3labs/mcp-go/pull/1031))
   - fix(server): reject an unsupported MCP-Protocol-Version header ([#1030](https://github.com/mark3labs/mcp-go/pull/1030))
   - fix: parse sampling content sent as an array ([#1029](https://github.com/mark3labs/mcp-go/pull/1029))
   - fix(mcp): omit empty completion context arguments ([#1024](https://github.com/mark3labs/mcp-go/pull/1024))
-- <img src="https://github.com/vllm-project.png?size=32" width="16" height="16" alt=""> **vllm-project/aibrix**
-  - \[Feat\] Report how many prefix blocks are cached ([#2945](https://github.com/vllm-project/aibrix/pull/2945))
 - <img src="https://github.com/hyperledger.png?size=32" width="16" height="16" alt=""> **hyperledger/fabric**
   - Reject illegal channel IDs in configtxgen ([#5609](https://github.com/hyperledger/fabric/pull/5609))
 - <img src="https://github.com/llm-d.png?size=32" width="16" height="16" alt=""> **llm-d/llm-d-router**
   - fix(sidecar): record stage metrics in the P2P connector ([#3093](https://github.com/llm-d/llm-d-router/pull/3093))
-  - fix(sidecar): recover a streamed decode-first abort in shared storage ([#3120](https://github.com/llm-d/llm-d-router/pull/3120))
-  - fix(sidecar): keep discarded decode-first headers out of the response ([#3121](https://github.com/llm-d/llm-d-router/pull/3121))
 
-Plus [15 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests).
+Plus [13 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests).
 <!-- recent-prs:end -->
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests)

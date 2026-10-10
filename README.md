@@ -57,6 +57,13 @@ Plus [15 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apubl
   HashiCorp Vault plugin that signs with secp256k1 keys, so Vault works as a software  HSM
   for Ethereum.
 
+## Sponsoring
+
+If gograph or my other projects save you time, you can support my open source work
+through GitHub Sponsors.
+
+[![Sponsor my work](https://img.shields.io/badge/Sponsor_my_work-ea4aaa?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/hmdsefi)
+
 ## Contact
 
 [LinkedIn](https://www.linkedin.com/in/hamed-yousefi-411251b5/)

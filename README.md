@@ -20,6 +20,9 @@ more than the public activity below.
 ## Recent upstream contributions
 
 <!-- recent-prs:start -->
+- <img src="https://github.com/hyperledger.png?size=32" width="16" height="16" alt=""> **hyperledger/fabric**
+  - Reject negative block IDs in channel participation fetch ([#5608](https://github.com/hyperledger/fabric/pull/5608))
+  - Reject illegal channel IDs in configtxgen ([#5609](https://github.com/hyperledger/fabric/pull/5609))
 - <img src="https://github.com/k8sgpt-ai.png?size=32" width="16" height="16" alt=""> **k8sgpt-ai/k8sgpt**
   - fix: honor matchExpressions in NetworkPolicy pod selectors ([#1818](https://github.com/k8sgpt-ai/k8sgpt/pull/1818))
 - <img src="https://github.com/vllm-project.png?size=32" width="16" height="16" alt=""> **vllm-project/aibrix**
@@ -31,11 +34,8 @@ more than the public activity below.
   - fix(mcp): keep structuredContent on tool\_result content ([#1031](https://github.com/mark3labs/mcp-go/pull/1031))
   - fix(server): reject an unsupported MCP-Protocol-Version header ([#1030](https://github.com/mark3labs/mcp-go/pull/1030))
   - fix: parse sampling content sent as an array ([#1029](https://github.com/mark3labs/mcp-go/pull/1029))
-  - fix(mcp): omit empty completion context arguments ([#1024](https://github.com/mark3labs/mcp-go/pull/1024))
-- <img src="https://github.com/hyperledger.png?size=32" width="16" height="16" alt=""> **hyperledger/fabric**
-  - Reject illegal channel IDs in configtxgen ([#5609](https://github.com/hyperledger/fabric/pull/5609))
 
-Plus [12 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests).
+Plus [17 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests).
 <!-- recent-prs:end -->
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests)

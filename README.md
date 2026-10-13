@@ -35,7 +35,7 @@ more than the public activity below.
   - fix(server): reject an unsupported MCP-Protocol-Version header ([#1030](https://github.com/mark3labs/mcp-go/pull/1030))
   - fix: parse sampling content sent as an array ([#1029](https://github.com/mark3labs/mcp-go/pull/1029))
 
-Plus [17 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests).
+Plus [16 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests).
 <!-- recent-prs:end -->
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests)

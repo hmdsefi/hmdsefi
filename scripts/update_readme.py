@@ -17,6 +17,7 @@ from pathlib import Path
 
 USER = "hmdsefi"
 LIMIT = 10
+MIN_PROJECTS = 4
 README = Path(__file__).resolve().parent.parent / "README.md"
 
 # Projects whose release line is generated, and whether their milestone descriptions
@@ -115,11 +116,22 @@ def release_status(release, milestones, with_theme):
     return " ".join(parts)
 
 
-def latest_merged(items, limit):
-    """Returns the most recently merged pull requests, newest first."""
+def latest_merged(items, limit, min_projects=1):
+    """Returns the most recently merged pull requests, newest first.
+
+    The newest pull request of each of the min_projects most recently merged-to projects
+    is always included, so one busy project can't fill the whole list.
+    """
     merged = [item for item in items if item["pull_request"].get("merged_at")]
     merged.sort(key=lambda item: item["pull_request"]["merged_at"], reverse=True)
-    return merged[:limit]
+    picked = []
+    for item in merged:
+        if len(picked) == min_projects:
+            break
+        if all(repo_of(item) != repo_of(other) for other in picked):
+            picked.append(item)
+    picked += [item for item in merged if item not in picked][: limit - len(picked)]
+    return sorted(picked, key=lambda item: item["pull_request"]["merged_at"], reverse=True)
 
 
 def escape(title):
@@ -177,7 +189,7 @@ def main():
     repos = sorted({repo_of(item) for item in merged + open_prs})
     forks = own_forks([get(f"/repos/{repo}", token) for repo in repos])
 
-    prs = latest_merged(without_repos(merged, forks), LIMIT)
+    prs = latest_merged(without_repos(merged, forks), LIMIT, MIN_PROJECTS)
     if not prs:
         sys.exit("No merged pull requests found, leaving README.md unchanged")
     open_count = len(without_repos(open_prs, forks))

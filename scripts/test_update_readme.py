@@ -56,6 +56,23 @@ class LatestMergedTest(unittest.TestCase):
         items = [pr("a/x", 1, "one", None), pr("a/x", 2, "two")]
         self.assertEqual([p["number"] for p in ur.latest_merged(items, 10)], [2])
 
+    def test_keeps_the_newest_of_the_most_recent_projects(self):
+        items = [
+            pr("a/x", 1, "a1", "2026-10-05T10:00:00Z"),
+            pr("a/x", 2, "a2", "2026-10-04T10:00:00Z"),
+            pr("a/x", 3, "a3", "2026-10-03T10:00:00Z"),
+            pr("b/y", 4, "b1", "2026-10-02T10:00:00Z"),
+            pr("c/z", 5, "c1", "2026-10-01T10:00:00Z"),
+            pr("b/y", 6, "b2", "2026-09-30T10:00:00Z"),
+        ]
+        got = ur.latest_merged(items, 4, min_projects=3)
+        self.assertEqual([p["number"] for p in got], [1, 2, 4, 5])
+
+    def test_fewer_projects_than_the_minimum(self):
+        items = [pr("a/x", n, str(n), f"2026-10-0{n}T10:00:00Z") for n in range(1, 5)]
+        got = ur.latest_merged(items, 3, min_projects=4)
+        self.assertEqual([p["number"] for p in got], [4, 3, 2])
+
 
 class RenderTest(unittest.TestCase):
     def test_groups_by_project_in_order_of_newest_merge(self):

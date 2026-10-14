@@ -34,9 +34,10 @@ more than the public activity below.
   - fix(epp): use the pod's node name as the topology hostname fallback ([#3386](https://github.com/llm-d/llm-d-router/pull/3386))
   - fix(sidecar): forward requests with n \> 1 without chunked decode ([#3388](https://github.com/llm-d/llm-d-router/pull/3388))
   - feat(sidecar): treat an Anthropic cache\_threshold stop reason as a prefill fallback ([#3268](https://github.com/llm-d/llm-d-router/pull/3268))
-  - fix(sidecar): prime Anthropic image blocks on the encoder ([#3266](https://github.com/llm-d/llm-d-router/pull/3266))
 - <img src="https://github.com/hyperledger.png?size=32" width="16" height="16" alt=""> **hyperledger/fabric**
   - Honor the chaincode connection.json domain field ([#5617](https://github.com/hyperledger/fabric/pull/5617))
+- <img src="https://github.com/k8sgpt-ai.png?size=32" width="16" height="16" alt=""> **k8sgpt-ai/k8sgpt**
+  - fix: match HTTPRoute namespace selectors against the namespace ([#1825](https://github.com/k8sgpt-ai/k8sgpt/pull/1825))
 
 Plus [23 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3Aabhijeetnardele24-hash%2Fgograph+-repo%3Aashhforrd%2Fgograph&type=pullrequests).
 

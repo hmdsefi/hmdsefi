@@ -20,22 +20,22 @@ more than the public activity below.
 ## Recent upstream contributions
 
 <!-- recent-prs:start -->
-- <img src="https://github.com/hyperledger.png?size=32" width="16" height="16" alt=""> **hyperledger/fabric**
-  - Reject negative block IDs in channel participation fetch ([#5608](https://github.com/hyperledger/fabric/pull/5608))
-  - Reject illegal channel IDs in configtxgen ([#5609](https://github.com/hyperledger/fabric/pull/5609))
-- <img src="https://github.com/k8sgpt-ai.png?size=32" width="16" height="16" alt=""> **k8sgpt-ai/k8sgpt**
-  - fix: honor matchExpressions in NetworkPolicy pod selectors ([#1818](https://github.com/k8sgpt-ai/k8sgpt/pull/1818))
 - <img src="https://github.com/vllm-project.png?size=32" width="16" height="16" alt=""> **vllm-project/aibrix**
-  - \[Bug\] Keep a one-block prefix match from scoring zero ([#2943](https://github.com/vllm-project/aibrix/pull/2943))
-  - \[Bug\] Skip LRU eviction when the interval is not positive ([#2944](https://github.com/vllm-project/aibrix/pull/2944))
-  - \[Feat\] Report how many prefix blocks are cached ([#2945](https://github.com/vllm-project/aibrix/pull/2945))
-- <img src="https://github.com/mark3labs.png?size=32" width="16" height="16" alt=""> **mark3labs/mcp-go**
-  - fix(server): treat a non-positive pagination limit as no paging ([#1047](https://github.com/mark3labs/mcp-go/pull/1047))
-  - fix(mcp): keep structuredContent on tool\_result content ([#1031](https://github.com/mark3labs/mcp-go/pull/1031))
-  - fix(server): reject an unsupported MCP-Protocol-Version header ([#1030](https://github.com/mark3labs/mcp-go/pull/1030))
-  - fix: parse sampling content sent as an array ([#1029](https://github.com/mark3labs/mcp-go/pull/1029))
+  - \[Bug\] Round request trace bucket indexes instead of truncating ([#3046](https://github.com/vllm-project/aibrix/pull/3046))
+  - \[Bug\] Stop the VTC token tracker from keeping stale user totals ([#3048](https://github.com/vllm-project/aibrix/pull/3048))
+  - \[Bug\] Keep a prefix's pods when one of its branches is evicted ([#3044](https://github.com/vllm-project/aibrix/pull/3044))
+  - \[Bug\] Remove the Preble histogram map that kept every tree node ([#3050](https://github.com/vllm-project/aibrix/pull/3050))
+- <img src="https://github.com/abhijeetnardele24-hash.png?size=32" width="16" height="16" alt=""> **abhijeetnardele24-hash/gograph**
+  - Check for nil results in the Sources and Sinks tests ([#1](https://github.com/abhijeetnardele24-hash/gograph/pull/1))
+- <img src="https://github.com/llm-d.png?size=32" width="16" height="16" alt=""> **llm-d/llm-d-router**
+  - fix(epp): reject file-discovery entries without a unique name ([#3390](https://github.com/llm-d/llm-d-router/pull/3390))
+  - fix(epp): use the pod's node name as the topology hostname fallback ([#3386](https://github.com/llm-d/llm-d-router/pull/3386))
+  - fix(sidecar): forward requests with n \> 1 without chunked decode ([#3388](https://github.com/llm-d/llm-d-router/pull/3388))
+  - feat(sidecar): treat an Anthropic cache\_threshold stop reason as a prefill fallback ([#3268](https://github.com/llm-d/llm-d-router/pull/3268))
+- <img src="https://github.com/hyperledger.png?size=32" width="16" height="16" alt=""> **hyperledger/fabric**
+  - Honor the chaincode connection.json domain field ([#5617](https://github.com/hyperledger/fabric/pull/5617))
 
-Plus [16 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests).
+Plus [22 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests).
 <!-- recent-prs:end -->
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests)

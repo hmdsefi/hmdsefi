@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Rewrites the generated parts of README.md: the latest gograph release and next
-milestone, and the list of recent upstream pull requests.
+"""Rewrites the generated parts of README.md: the latest release and next milestone
+of each project in PROJECTS, and the list of recent upstream pull requests.
 
 Set GITHUB_TOKEN to raise the API rate limit. The pull request queries are limited
 to public repositories, so a token with access to private repositories is safe to use.
@@ -16,15 +16,15 @@ from datetime import datetime
 from pathlib import Path
 
 USER = "hmdsefi"
-GOGRAPH = f"{USER}/gograph"
 LIMIT = 10
 README = Path(__file__).resolve().parent.parent / "README.md"
 
+# Projects whose release line is generated, and whether their milestone descriptions
+# start with a theme ("Dependency graph toolkit: ...") to show after the due date.
+PROJECTS = {"faultline": False, "gograph": True}
+
 MERGED_QUERY = f"is:pr is:merged is:public author:{USER} -user:{USER}"
 OPEN_QUERY = f"is:pr is:open is:public author:{USER} -user:{USER}"
-OPEN_SEARCH_URL = "https://github.com/search?" + urllib.parse.urlencode(
-    {"q": OPEN_QUERY, "type": "pullrequests"}
-)
 
 ESCAPED = "\\*_[]<>"
 
@@ -50,6 +50,30 @@ def search(query, token, per_page):
     return get("/search/issues", token, q=query, sort="created", order="desc", per_page=per_page)
 
 
+def search_url(query, excluded):
+    """Links to a GitHub search for query, leaving out the excluded repositories."""
+    q = " ".join([query] + [f"-repo:{repo}" for repo in sorted(excluded)])
+    return "https://github.com/search?" + urllib.parse.urlencode({"q": q, "type": "pullrequests"})
+
+
+def repo_of(item):
+    return item["repository_url"].removeprefix("https://api.github.com/repos/")
+
+
+def own_forks(repos):
+    """Returns the names of the repositories that are forks of one of USER's repositories."""
+    return {
+        repo["full_name"]
+        for repo in repos
+        if repo.get("fork") and repo["source"]["owner"]["login"].lower() == USER.lower()
+    }
+
+
+def without_repos(items, repos):
+    excluded = {repo.lower() for repo in repos}
+    return [item for item in items if repo_of(item).lower() not in excluded]
+
+
 def day(timestamp):
     date = datetime.fromisoformat(timestamp)
     return f"{date:%B} {date.day}"
@@ -60,20 +84,35 @@ def theme(description):
     return escape(re.split(r":|\.(?:\s|$)", description or "", maxsplit=1)[0].strip())
 
 
-def gograph_status(release, milestones):
+def latest_release(releases):
+    """Returns the newest published release of the main module, or None.
+
+    Tags with a slash, such as harness/etcdraft/v0.1.0, belong to nested modules.
+    """
+    published = [
+        r for r in releases if not r["draft"] and not r["prerelease"] and "/" not in r["tag_name"]
+    ]
+    return max(published, key=lambda r: r["published_at"], default=None)
+
+
+def release_status(release, milestones, with_theme):
     """Describes the latest release and the earliest open milestone after it."""
-    status = f"[{release['tag_name']}]({release['html_url']}) shipped on {day(release['published_at'])}."
-    upcoming = [m for m in milestones if m["title"] != release["tag_name"]]
-    if not upcoming:
-        return status
-    upcoming.sort(key=lambda m: (m["due_on"] is None, m["due_on"] or ""))
-    milestone = upcoming[0]
-    status += f" Next is [{milestone['title']}]({milestone['html_url']})"
-    if milestone["due_on"]:
-        status += f", due {day(milestone['due_on'])}"
-    if summary := theme(milestone["description"]):
-        status += f": {summary}"
-    return status + "."
+    parts = []
+    upcoming = milestones
+    if release:
+        tag = release["tag_name"]
+        parts.append(f"[{tag}]({release['html_url']}) shipped on {day(release['published_at'])}.")
+        # A milestone titled after the release, like "v0.1.1 (hardening)", can stay open after it ships.
+        upcoming = [m for m in milestones if m["title"].split()[0] != tag]
+    if upcoming:
+        milestone = min(upcoming, key=lambda m: (m["due_on"] is None, m["due_on"] or ""))
+        next_up = f"Next is [{escape(milestone['title'])}]({milestone['html_url']})"
+        if milestone["due_on"]:
+            next_up += f", due {day(milestone['due_on'])}"
+        if with_theme and (summary := theme(milestone["description"])):
+            next_up += f": {summary}"
+        parts.append(next_up + ".")
+    return " ".join(parts)
 
 
 def latest_merged(items, limit):
@@ -93,12 +132,11 @@ def escape(title):
     return "`".join(parts)
 
 
-def render(prs, open_count):
+def render(prs):
     """Lists the pull requests grouped by project, in the order they're given."""
     groups = {}
     for pr in prs:
-        repo = pr["repository_url"].removeprefix("https://api.github.com/repos/")
-        groups.setdefault(repo, []).append(pr)
+        groups.setdefault(repo_of(pr), []).append(pr)
 
     lines = []
     for repo, items in groups.items():
@@ -108,9 +146,18 @@ def render(prs, open_count):
         )
         for pr in items:
             lines.append(f"  - {escape(pr['title'])} ([#{pr['number']}]({pr['html_url']}))")
-    if open_count:
-        lines += ["", f"Plus [{open_count} more in review]({OPEN_SEARCH_URL})."]
     return "\n".join(lines)
+
+
+def footer(open_count, forks):
+    """Links to the open and the merged pull requests, leaving out the forks."""
+    paragraphs = []
+    if open_count:
+        paragraphs.append(f"Plus [{open_count} more in review]({search_url(OPEN_QUERY, forks)}).")
+    paragraphs.append(
+        f"[All my merged pull requests to other projects]({search_url(MERGED_QUERY, forks)})"
+    )
+    return "\n\n".join(paragraphs)
 
 
 def replace_section(readme, name, content):
@@ -125,16 +172,25 @@ def replace_section(readme, name, content):
 
 def main():
     token = os.environ.get("GITHUB_TOKEN")
-    prs = latest_merged(search(MERGED_QUERY, token, 50)["items"], LIMIT)
+    merged = search(MERGED_QUERY, token, 100)["items"]
+    open_prs = search(OPEN_QUERY, token, 100)["items"]
+    repos = sorted({repo_of(item) for item in merged + open_prs})
+    forks = own_forks([get(f"/repos/{repo}", token) for repo in repos])
+
+    prs = latest_merged(without_repos(merged, forks), LIMIT)
     if not prs:
         sys.exit("No merged pull requests found, leaving README.md unchanged")
-    open_count = search(OPEN_QUERY, token, 1)["total_count"]
-    release = get(f"/repos/{GOGRAPH}/releases/latest", token)
-    milestones = get(f"/repos/{GOGRAPH}/milestones", token, state="open", per_page=100)
+    open_count = len(without_repos(open_prs, forks))
 
     readme = README.read_text()
-    updated = replace_section(readme, "gograph", gograph_status(release, milestones))
-    updated = replace_section(updated, "recent-prs", "\n" + render(prs, open_count) + "\n")
+    updated = readme
+    for project, with_theme in PROJECTS.items():
+        releases = get(f"/repos/{USER}/{project}/releases", token, per_page=30)
+        milestones = get(f"/repos/{USER}/{project}/milestones", token, state="open", per_page=100)
+        status = release_status(latest_release(releases), milestones, with_theme)
+        updated = replace_section(updated, project, status)
+    block = render(prs) + "\n\n" + footer(open_count, forks)
+    updated = replace_section(updated, "recent-prs", "\n" + block + "\n")
     if updated == readme:
         print("README.md is up to date")
         return

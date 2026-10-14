@@ -10,6 +10,10 @@ more than the public activity below.
 
 ## Now
 
+- **[faultline](https://github.com/hmdsefi/faultline)**: deterministic simulation testing for
+  Go. It runs a distributed system on a simulated network, disk and clock inside `go test`,
+  injects faults like partitions, crashes and failed fsyncs, and replays any failing run
+  exactly from its seed. <!-- faultline:start -->[v0.1.0](https://github.com/hmdsefi/faultline/releases/tag/v0.1.0) shipped on October 11. Next is [v0.1.1 (hardening and agent plugin)](https://github.com/hmdsefi/faultline/milestone/3), due October 19.<!-- faultline:end -->
 - **[gograph](https://github.com/hmdsefi/gograph)**: <!-- gograph:start -->[v0.8.2](https://github.com/hmdsefi/gograph/releases/tag/v0.8.2) shipped on October 2. Next is [v0.9.0](https://github.com/hmdsefi/gograph/milestone/1), due October 19: Dependency graph toolkit.<!-- gograph:end -->
   Contributions are welcome, and
   [CONTRIBUTING.md](https://github.com/hmdsefi/gograph/blob/master/CONTRIBUTING.md) explains
@@ -25,23 +29,25 @@ more than the public activity below.
   - \[Bug\] Stop the VTC token tracker from keeping stale user totals ([#3048](https://github.com/vllm-project/aibrix/pull/3048))
   - \[Bug\] Keep a prefix's pods when one of its branches is evicted ([#3044](https://github.com/vllm-project/aibrix/pull/3044))
   - \[Bug\] Remove the Preble histogram map that kept every tree node ([#3050](https://github.com/vllm-project/aibrix/pull/3050))
-- <img src="https://github.com/abhijeetnardele24-hash.png?size=32" width="16" height="16" alt=""> **abhijeetnardele24-hash/gograph**
-  - Check for nil results in the Sources and Sinks tests ([#1](https://github.com/abhijeetnardele24-hash/gograph/pull/1))
 - <img src="https://github.com/llm-d.png?size=32" width="16" height="16" alt=""> **llm-d/llm-d-router**
   - fix(epp): reject file-discovery entries without a unique name ([#3390](https://github.com/llm-d/llm-d-router/pull/3390))
   - fix(epp): use the pod's node name as the topology hostname fallback ([#3386](https://github.com/llm-d/llm-d-router/pull/3386))
   - fix(sidecar): forward requests with n \> 1 without chunked decode ([#3388](https://github.com/llm-d/llm-d-router/pull/3388))
   - feat(sidecar): treat an Anthropic cache\_threshold stop reason as a prefill fallback ([#3268](https://github.com/llm-d/llm-d-router/pull/3268))
+  - fix(sidecar): prime Anthropic image blocks on the encoder ([#3266](https://github.com/llm-d/llm-d-router/pull/3266))
 - <img src="https://github.com/hyperledger.png?size=32" width="16" height="16" alt=""> **hyperledger/fabric**
   - Honor the chaincode connection.json domain field ([#5617](https://github.com/hyperledger/fabric/pull/5617))
 
-Plus [22 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests).
-<!-- recent-prs:end -->
+Plus [23 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3Aabhijeetnardele24-hash%2Fgograph+-repo%3Aashhforrd%2Fgograph&type=pullrequests).
 
-[All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+author%3Ahmdsefi+-user%3Ahmdsefi&type=pullrequests)
+[All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3Aabhijeetnardele24-hash%2Fgograph+-repo%3Aashhforrd%2Fgograph&type=pullrequests)
+<!-- recent-prs:end -->
 
 ## Projects
 
+- [faultline](https://github.com/hmdsefi/faultline): deterministic simulation testing for Go,
+  with a simulated network, disk and clock and failures you can replay from a seed. Built for
+  AI coding agents and people.
 - [gograph](https://github.com/hmdsefi/gograph): generic graph library for Go. Dependency
   graphs with cycle checks and topological order, traversal, shortest paths, connectivity
   and partitioning, with no dependencies.

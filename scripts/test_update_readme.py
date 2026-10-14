@@ -1,4 +1,5 @@
 import unittest
+import urllib.parse
 
 import update_readme as ur
 
@@ -26,6 +27,22 @@ class QueryTest(unittest.TestCase):
             self.assertIn("-user:hmdsefi", terms)
 
 
+class OwnForksTest(unittest.TestCase):
+    def test_only_forks_of_my_repos(self):
+        repos = [
+            {"full_name": "ashhforrd/gograph", "fork": True, "source": {"full_name": "hmdsefi/gograph", "owner": {"login": "hmdsefi"}}},
+            {"full_name": "someone/aibrix", "fork": True, "source": {"full_name": "vllm-project/aibrix", "owner": {"login": "vllm-project"}}},
+            {"full_name": "vllm-project/aibrix", "fork": False},
+        ]
+        self.assertEqual(ur.own_forks(repos), {"ashhforrd/gograph"})
+
+    def test_without_repos_ignores_case(self):
+        items = [pr("Ashhforrd/gograph", 1, "fork"), pr("vllm-project/aibrix", 2, "upstream")]
+        self.assertEqual(
+            [p["number"] for p in ur.without_repos(items, {"ashhforrd/gograph"})], [2]
+        )
+
+
 class LatestMergedTest(unittest.TestCase):
     def test_newest_merge_first_and_limited(self):
         items = [
@@ -48,7 +65,7 @@ class RenderTest(unittest.TestCase):
             pr("vllm-project/aibrix", 2878, "Stop empty patches"),
         ]
         self.assertEqual(
-            ur.render(prs, 0),
+            ur.render(prs),
             "\n".join(
                 [
                     f"- {logo('vllm-project')} **vllm-project/aibrix**",
@@ -60,13 +77,24 @@ class RenderTest(unittest.TestCase):
             ),
         )
 
-    def test_open_count_line(self):
-        out = ur.render([pr("a/x", 1, "one")], 15)
-        self.assertTrue(out.endswith(f"\n\nPlus [15 more in review]({ur.OPEN_SEARCH_URL})."))
-        self.assertIn("is%3Aopen", ur.OPEN_SEARCH_URL)
+
+class FooterTest(unittest.TestCase):
+    def test_open_count_and_merged_links_leave_out_forks(self):
+        forks = {"ashhforrd/gograph"}
+        self.assertEqual(
+            ur.footer(15, forks),
+            f"Plus [15 more in review]({ur.search_url(ur.OPEN_QUERY, forks)}).\n\n"
+            f"[All my merged pull requests to other projects]({ur.search_url(ur.MERGED_QUERY, forks)})",
+        )
 
     def test_no_open_count_line_when_none_open(self):
-        self.assertNotIn("in review", ur.render([pr("a/x", 1, "one")], 0))
+        self.assertNotIn("in review", ur.footer(0, set()))
+
+    def test_search_url(self):
+        url = ur.search_url(ur.OPEN_QUERY, {"b/gograph", "a/gograph"})
+        query = urllib.parse.parse_qs(urllib.parse.urlparse(url).query)
+        self.assertEqual(query["type"], ["pullrequests"])
+        self.assertEqual(query["q"], [ur.OPEN_QUERY + " -repo:a/gograph -repo:b/gograph"])
 
 
 class EscapeTest(unittest.TestCase):
@@ -80,11 +108,13 @@ class EscapeTest(unittest.TestCase):
         self.assertEqual(ur.escape("fix `a_b"), r"fix \`a\_b")
 
 
-def release(tag, published_at):
+def release(tag, published_at, draft=False, prerelease=False):
     return {
         "tag_name": tag,
         "html_url": f"https://github.com/hmdsefi/gograph/releases/tag/{tag}",
         "published_at": published_at,
+        "draft": draft,
+        "prerelease": prerelease,
     }
 
 
@@ -97,7 +127,22 @@ def milestone(number, title, due_on, description):
     }
 
 
-class GographStatusTest(unittest.TestCase):
+class LatestReleaseTest(unittest.TestCase):
+    def test_newest_release_of_the_main_module(self):
+        releases = [
+            release("harness/etcdraft/v0.1.1", "2026-10-20T10:00:00Z"),
+            release("v0.2.0-rc.1", "2026-10-19T10:00:00Z", prerelease=True),
+            release("v0.2.0", "2026-10-21T10:00:00Z", draft=True),
+            release("v0.1.1", "2026-10-18T10:00:00Z"),
+            release("v0.1.0", "2026-10-11T10:00:00Z"),
+        ]
+        self.assertEqual(ur.latest_release(releases)["tag_name"], "v0.1.1")
+
+    def test_no_release(self):
+        self.assertIsNone(ur.latest_release([release("harness/etcdraft/v0.1.0", "2026-10-11T10:00:00Z")]))
+
+
+class ReleaseStatusTest(unittest.TestCase):
     def test_release_and_earliest_upcoming_milestone(self):
         milestones = [
             milestone(1, "v0.9.0", "2026-10-27T00:00:00Z", "Dependency graph toolkit: section 4."),
@@ -106,23 +151,46 @@ class GographStatusTest(unittest.TestCase):
         ]
         # The v0.9.0 milestone is still open right after the release, so it isn't "next".
         self.assertEqual(
-            ur.gograph_status(release("v0.9.0", "2026-10-27T11:31:00Z"), milestones),
+            ur.release_status(release("v0.9.0", "2026-10-27T11:31:00Z"), milestones, with_theme=True),
             "[v0.9.0](https://github.com/hmdsefi/gograph/releases/tag/v0.9.0) shipped on October 27."
             " Next is [v0.10.0](https://github.com/hmdsefi/gograph/milestone/2), due November 17:"
             " Foundations and performance.",
         )
 
+    def test_without_theme_and_milestone_titled_after_the_release(self):
+        milestones = [
+            milestone(1, "Phase 2: Existing-code shims", None, "Goroutine mode, netsim."),
+            milestone(2, "v0.1.1 (hardening and agent plugin)", "2026-10-19T00:00:00Z", "Right after v0.1.0: tests."),
+        ]
+        self.assertEqual(
+            ur.release_status(release("v0.1.0", "2026-10-11T13:57:28Z"), milestones, with_theme=False),
+            "[v0.1.0](https://github.com/hmdsefi/gograph/releases/tag/v0.1.0) shipped on October 11."
+            " Next is [v0.1.1 (hardening and agent plugin)](https://github.com/hmdsefi/gograph/milestone/2),"
+            " due October 19.",
+        )
+        self.assertTrue(
+            ur.release_status(release("v0.1.1", "2026-10-19T10:00:00Z"), milestones, with_theme=False).endswith(
+                " Next is [Phase 2: Existing-code shims](https://github.com/hmdsefi/gograph/milestone/1)."
+            )
+        )
+
     def test_no_open_milestones(self):
         self.assertEqual(
-            ur.gograph_status(release("v0.8.2", "2026-10-02T11:31:00Z"), []),
+            ur.release_status(release("v0.8.2", "2026-10-02T11:31:00Z"), [], with_theme=True),
             "[v0.8.2](https://github.com/hmdsefi/gograph/releases/tag/v0.8.2) shipped on October 2.",
         )
 
     def test_milestone_without_due_date_or_description(self):
-        status = ur.gograph_status(
-            release("v0.8.2", "2026-10-02T11:31:00Z"), [milestone(1, "v0.9.0", None, "")]
+        status = ur.release_status(
+            release("v0.8.2", "2026-10-02T11:31:00Z"), [milestone(1, "v0.9.0", None, "")], with_theme=True
         )
         self.assertTrue(status.endswith(" Next is [v0.9.0](https://github.com/hmdsefi/gograph/milestone/1)."))
+
+    def test_no_release_yet(self):
+        self.assertEqual(
+            ur.release_status(None, [milestone(1, "v0.1.0", "2026-10-11T00:00:00Z", "")], with_theme=True),
+            "Next is [v0.1.0](https://github.com/hmdsefi/gograph/milestone/1), due October 11.",
+        )
 
 
 class ThemeTest(unittest.TestCase):

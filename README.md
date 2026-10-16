@@ -24,6 +24,11 @@ more than the public activity below.
 ## Recent upstream contributions
 
 <!-- recent-prs:start -->
+- <img src="https://github.com/k8sgpt-ai.png?size=32" width="16" height="16" alt=""> **k8sgpt-ai/k8sgpt**
+  - fix: honor the namespace filter in the Gateway API analyzers ([#1826](https://github.com/k8sgpt-ai/k8sgpt/pull/1826))
+  - fix: report failed results in Kyverno ClusterPolicyReports ([#1832](https://github.com/k8sgpt-ai/k8sgpt/pull/1832))
+  - fix: accept an empty storageClassName in StatefulSet claim templates ([#1830](https://github.com/k8sgpt-ai/k8sgpt/pull/1830))
+  - fix: keep webhook findings when configurations share a webhook name ([#1827](https://github.com/k8sgpt-ai/k8sgpt/pull/1827))
 - <img src="https://github.com/ethereum.png?size=32" width="16" height="16" alt=""> **ethereum/hive**
   - hivesim: return API errors from StopClient, PauseClient and UnpauseClient ([#1616](https://github.com/ethereum/hive/pull/1616))
 - <img src="https://github.com/mark3labs.png?size=32" width="16" height="16" alt=""> **mark3labs/mcp-go**
@@ -33,13 +38,8 @@ more than the public activity below.
   - fix(mcp): let WithRawInputSchema replace the default input schema ([#1082](https://github.com/mark3labs/mcp-go/pull/1082))
 - <img src="https://github.com/hyperledger.png?size=32" width="16" height="16" alt=""> **hyperledger/fabric**
   - Wrap the Domain template error in the ccaas builder ([#5621](https://github.com/hyperledger/fabric/pull/5621))
-- <img src="https://github.com/vllm-project.png?size=32" width="16" height="16" alt=""> **vllm-project/aibrix**
-  - \[Bug\] Round request trace bucket indexes instead of truncating ([#3046](https://github.com/vllm-project/aibrix/pull/3046))
-  - \[Bug\] Stop the VTC token tracker from keeping stale user totals ([#3048](https://github.com/vllm-project/aibrix/pull/3048))
-  - \[Bug\] Keep a prefix's pods when one of its branches is evicted ([#3044](https://github.com/vllm-project/aibrix/pull/3044))
-  - \[Bug\] Remove the Preble histogram map that kept every tree node ([#3050](https://github.com/vllm-project/aibrix/pull/3050))
 
-Plus [17 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
+Plus [12 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests)
 <!-- recent-prs:end -->

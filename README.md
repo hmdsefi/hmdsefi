@@ -14,7 +14,7 @@ more than the public activity below.
   Go. It runs a distributed system on a simulated network, disk and clock inside `go test`,
   injects faults like partitions, crashes and failed fsyncs, and replays any failing run
   exactly from its seed. <!-- faultline:start -->[v0.1.0](https://github.com/hmdsefi/faultline/releases/tag/v0.1.0) shipped on October 11. Next is [v0.1.1 (hardening and agent plugin)](https://github.com/hmdsefi/faultline/milestone/3), due October 19.<!-- faultline:end -->
-- **[gograph](https://github.com/hmdsefi/gograph)**: <!-- gograph:start -->[v0.8.2](https://github.com/hmdsefi/gograph/releases/tag/v0.8.2) shipped on October 2. Next is [v0.9.0](https://github.com/hmdsefi/gograph/milestone/1), due October 19: Dependency graph toolkit.<!-- gograph:end -->
+- **[gograph](https://github.com/hmdsefi/gograph)**: <!-- gograph:start -->[v0.9.0](https://github.com/hmdsefi/gograph/releases/tag/v0.9.0) shipped on October 16. Next is [v0.10.0](https://github.com/hmdsefi/gograph/milestone/2), due November 17: Foundations and performance.<!-- gograph:end -->
   Contributions are welcome, and
   [CONTRIBUTING.md](https://github.com/hmdsefi/gograph/blob/master/CONTRIBUTING.md) explains
   where to start.
@@ -25,6 +25,8 @@ more than the public activity below.
 
 <!-- recent-prs:start -->
 - <img src="https://github.com/k8sgpt-ai.png?size=32" width="16" height="16" alt=""> **k8sgpt-ai/k8sgpt**
+  - fix: keep the known parent when the top owner has an unsupported kind ([#1833](https://github.com/k8sgpt-ai/k8sgpt/pull/1833))
+  - fix: do not report an unsupported KEDA scaleTargetRef as missing ([#1831](https://github.com/k8sgpt-ai/k8sgpt/pull/1831))
   - fix: honor the namespace filter in the Gateway API analyzers ([#1826](https://github.com/k8sgpt-ai/k8sgpt/pull/1826))
   - fix: report failed results in Kyverno ClusterPolicyReports ([#1832](https://github.com/k8sgpt-ai/k8sgpt/pull/1832))
   - fix: accept an empty storageClassName in StatefulSet claim templates ([#1830](https://github.com/k8sgpt-ai/k8sgpt/pull/1830))
@@ -34,12 +36,10 @@ more than the public activity below.
 - <img src="https://github.com/mark3labs.png?size=32" width="16" height="16" alt=""> **mark3labs/mcp-go**
   - feat(server): limit the size of a tool result ([#1048](https://github.com/mark3labs/mcp-go/pull/1048))
   - fix(transport): don't take SSE server requests as responses ([#1085](https://github.com/mark3labs/mcp-go/pull/1085))
-  - fix(server): serialize stdio session requests with other writes ([#1084](https://github.com/mark3labs/mcp-go/pull/1084))
-  - fix(mcp): let WithRawInputSchema replace the default input schema ([#1082](https://github.com/mark3labs/mcp-go/pull/1082))
 - <img src="https://github.com/hyperledger.png?size=32" width="16" height="16" alt=""> **hyperledger/fabric**
   - Wrap the Domain template error in the ccaas builder ([#5621](https://github.com/hyperledger/fabric/pull/5621))
 
-Plus [12 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
+Plus [10 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests)
 <!-- recent-prs:end -->

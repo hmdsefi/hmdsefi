@@ -13,7 +13,7 @@ more than the public activity below.
 - **[faultline](https://github.com/hmdsefi/faultline)**: deterministic simulation testing for
   Go. It runs a distributed system on a simulated network, disk and clock inside `go test`,
   injects faults like partitions, crashes and failed fsyncs, and replays any failing run
-  exactly from its seed. <!-- faultline:start -->[v0.1.0](https://github.com/hmdsefi/faultline/releases/tag/v0.1.0) shipped on October 11. Next is [v0.1.1 (hardening and agent plugin)](https://github.com/hmdsefi/faultline/milestone/3), due October 19.<!-- faultline:end -->
+  exactly from its seed. <!-- faultline:start -->[v0.1.2](https://github.com/hmdsefi/faultline/releases/tag/v0.1.2) shipped on October 19. Next is [Phase 2: Existing-code shims](https://github.com/hmdsefi/faultline/milestone/2).<!-- faultline:end -->
 - **[gograph](https://github.com/hmdsefi/gograph)**: <!-- gograph:start -->[v0.9.0](https://github.com/hmdsefi/gograph/releases/tag/v0.9.0) shipped on October 16. Next is [v0.10.0](https://github.com/hmdsefi/gograph/milestone/2), due November 17: Foundations and performance.<!-- gograph:end -->
   Contributions are welcome, and
   [CONTRIBUTING.md](https://github.com/hmdsefi/gograph/blob/master/CONTRIBUTING.md) explains

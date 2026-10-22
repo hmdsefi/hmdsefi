@@ -24,9 +24,13 @@ more than the public activity below.
 ## Recent upstream contributions
 
 <!-- recent-prs:start -->
+- <img src="https://github.com/vllm-project.png?size=32" width="16" height="16" alt=""> **vllm-project/aibrix**
+  - \[Bug\] Republish a KV cache pod's address when it changes under the same name ([#3242](https://github.com/vllm-project/aibrix/pull/3242))
+- <img src="https://github.com/filecoin-project.png?size=32" width="16" height="16" alt=""> **filecoin-project/lotus**
+  - fix(sealing): don't let a cancelled task block scheduling of other tasks ([#13869](https://github.com/filecoin-project/lotus/pull/13869))
+  - fix(paths): skip unknown files when scanning storage paths ([#13950](https://github.com/filecoin-project/lotus/pull/13950))
 - <img src="https://github.com/mark3labs.png?size=32" width="16" height="16" alt=""> **mark3labs/mcp-go**
   - fix(server): unlock when Start fails with a conflicting address ([#1083](https://github.com/mark3labs/mcp-go/pull/1083))
-  - feat(server): limit the size of a tool result ([#1048](https://github.com/mark3labs/mcp-go/pull/1048))
 - <img src="https://github.com/k8sgpt-ai.png?size=32" width="16" height="16" alt=""> **k8sgpt-ai/k8sgpt**
   - fix: keep the known parent when the top owner has an unsupported kind ([#1833](https://github.com/k8sgpt-ai/k8sgpt/pull/1833))
   - fix: do not report an unsupported KEDA scaleTargetRef as missing ([#1831](https://github.com/k8sgpt-ai/k8sgpt/pull/1831))
@@ -34,12 +38,8 @@ more than the public activity below.
   - fix: report failed results in Kyverno ClusterPolicyReports ([#1832](https://github.com/k8sgpt-ai/k8sgpt/pull/1832))
   - fix: accept an empty storageClassName in StatefulSet claim templates ([#1830](https://github.com/k8sgpt-ai/k8sgpt/pull/1830))
   - fix: keep webhook findings when configurations share a webhook name ([#1827](https://github.com/k8sgpt-ai/k8sgpt/pull/1827))
-- <img src="https://github.com/ethereum.png?size=32" width="16" height="16" alt=""> **ethereum/hive**
-  - hivesim: return API errors from StopClient, PauseClient and UnpauseClient ([#1616](https://github.com/ethereum/hive/pull/1616))
-- <img src="https://github.com/hyperledger.png?size=32" width="16" height="16" alt=""> **hyperledger/fabric**
-  - Wrap the Domain template error in the ccaas builder ([#5621](https://github.com/hyperledger/fabric/pull/5621))
 
-Plus [9 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
+Plus [27 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests)
 <!-- recent-prs:end -->

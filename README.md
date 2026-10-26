@@ -24,6 +24,10 @@ more than the public activity below.
 ## Recent upstream contributions
 
 <!-- recent-prs:start -->
+- <img src="https://github.com/k8sgpt-ai.png?size=32" width="16" height="16" alt=""> **k8sgpt-ai/k8sgpt**
+  - fix: honor namespace, label and resource filters in the OLM analyzers ([#1859](https://github.com/k8sgpt-ai/k8sgpt/pull/1859))
+  - fix: report the current failure reason for OLM CSVs and Subscriptions ([#1855](https://github.com/k8sgpt-ai/k8sgpt/pull/1855))
+  - fix: keep the known parent when the top owner has an unsupported kind ([#1833](https://github.com/k8sgpt-ai/k8sgpt/pull/1833))
 - <img src="https://github.com/vllm-project.png?size=32" width="16" height="16" alt=""> **vllm-project/aibrix**
   - \[Bug\] Keep all of a KV cache pod's slot ranges when it owns the first and last slot ([#3240](https://github.com/vllm-project/aibrix/pull/3240))
   - \[Bug\] Republish a KV cache pod's address when it changes under the same name ([#3242](https://github.com/vllm-project/aibrix/pull/3242))
@@ -36,12 +40,8 @@ more than the public activity below.
   - fix(paths): skip unknown files when scanning storage paths ([#13950](https://github.com/filecoin-project/lotus/pull/13950))
 - <img src="https://github.com/mark3labs.png?size=32" width="16" height="16" alt=""> **mark3labs/mcp-go**
   - fix(server): unlock when Start fails with a conflicting address ([#1083](https://github.com/mark3labs/mcp-go/pull/1083))
-- <img src="https://github.com/k8sgpt-ai.png?size=32" width="16" height="16" alt=""> **k8sgpt-ai/k8sgpt**
-  - fix: keep the known parent when the top owner has an unsupported kind ([#1833](https://github.com/k8sgpt-ai/k8sgpt/pull/1833))
-  - fix: do not report an unsupported KEDA scaleTargetRef as missing ([#1831](https://github.com/k8sgpt-ai/k8sgpt/pull/1831))
-  - fix: honor the namespace filter in the Gateway API analyzers ([#1826](https://github.com/k8sgpt-ai/k8sgpt/pull/1826))
 
-Plus [22 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
+Plus [20 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests)
 <!-- recent-prs:end -->

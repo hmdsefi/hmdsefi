@@ -24,14 +24,14 @@ more than the public activity below.
 ## Recent upstream contributions
 
 <!-- recent-prs:start -->
+- <img src="https://github.com/filecoin-project.png?size=32" width="16" height="16" alt=""> **filecoin-project/lotus**
+  - fix(miner): redo precommit when a CommitFailed sector has no CommR or CommD ([#13843](https://github.com/filecoin-project/lotus/pull/13843))
+  - fix(sealing): don't require free space to move files already in storage ([#13949](https://github.com/filecoin-project/lotus/pull/13949))
+  - fix(sealing): don't let a cancelled task block scheduling of other tasks ([#13869](https://github.com/filecoin-project/lotus/pull/13869))
 - <img src="https://github.com/k8sgpt-ai.png?size=32" width="16" height="16" alt=""> **k8sgpt-ai/k8sgpt**
   - fix: keep the core analyzers when adding or removing filters over MCP ([#1857](https://github.com/k8sgpt-ai/k8sgpt/pull/1857))
   - fix: honor namespace, label and resource filters in the OLM analyzers ([#1859](https://github.com/k8sgpt-ai/k8sgpt/pull/1859))
   - fix: report the current failure reason for OLM CSVs and Subscriptions ([#1855](https://github.com/k8sgpt-ai/k8sgpt/pull/1855))
-- <img src="https://github.com/filecoin-project.png?size=32" width="16" height="16" alt=""> **filecoin-project/lotus**
-  - fix(sealing): don't require free space to move files already in storage ([#13949](https://github.com/filecoin-project/lotus/pull/13949))
-  - fix(sealing): don't let a cancelled task block scheduling of other tasks ([#13869](https://github.com/filecoin-project/lotus/pull/13869))
-  - fix(paths): skip unknown files when scanning storage paths ([#13950](https://github.com/filecoin-project/lotus/pull/13950))
 - <img src="https://github.com/vllm-project.png?size=32" width="16" height="16" alt=""> **vllm-project/aibrix**
   - \[Bug\] Keep all of a KV cache pod's slot ranges when it owns the first and last slot ([#3240](https://github.com/vllm-project/aibrix/pull/3240))
   - \[Bug\] Republish a KV cache pod's address when it changes under the same name ([#3242](https://github.com/vllm-project/aibrix/pull/3242))

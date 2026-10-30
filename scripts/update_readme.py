@@ -22,7 +22,7 @@ README = Path(__file__).resolve().parent.parent / "README.md"
 
 # Projects whose release line is generated, and whether their milestone descriptions
 # start with a theme ("Dependency graph toolkit: ...") to show after the due date.
-PROJECTS = {"faultline": False, "gograph": True}
+PROJECTS = {"faultline": False, "gograph": True, "lockstep": True}
 
 MERGED_QUERY = f"is:pr is:merged is:public author:{USER} -user:{USER}"
 OPEN_QUERY = f"is:pr is:open is:public author:{USER} -user:{USER}"
@@ -106,7 +106,7 @@ def release_status(release, milestones, with_theme):
         # A milestone titled after the release, like "v0.1.1 (hardening)", can stay open after it ships.
         upcoming = [m for m in milestones if m["title"].split()[0] != tag]
     if upcoming:
-        milestone = min(upcoming, key=lambda m: (m["due_on"] is None, m["due_on"] or ""))
+        milestone = min(upcoming, key=lambda m: (m["due_on"] is None, m["due_on"] or "", m["number"]))
         next_up = f"Next is [{escape(milestone['title'])}]({milestone['html_url']})"
         if milestone["due_on"]:
             next_up += f", due {day(milestone['due_on'])}"

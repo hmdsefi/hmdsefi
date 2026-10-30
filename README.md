@@ -10,14 +10,19 @@ more than the public activity below.
 
 ## Now
 
-- **[faultline](https://github.com/hmdsefi/faultline)**: deterministic simulation testing for
-  Go. It runs a distributed system on a simulated network, disk and clock inside `go test`,
-  injects faults like partitions, crashes and failed fsyncs, and replays any failing run
-  exactly from its seed. <!-- faultline:start -->[v0.1.2](https://github.com/hmdsefi/faultline/releases/tag/v0.1.2) shipped on October 19. Next is [Phase 2: Existing-code shims](https://github.com/hmdsefi/faultline/milestone/2).<!-- faultline:end -->
 - **[gograph](https://github.com/hmdsefi/gograph)**: <!-- gograph:start -->[v0.9.1](https://github.com/hmdsefi/gograph/releases/tag/v0.9.1) shipped on October 26. Next is [v0.10.0](https://github.com/hmdsefi/gograph/milestone/2), due November 17: Foundations and performance.<!-- gograph:end -->
   Contributions are welcome, and
   [CONTRIBUTING.md](https://github.com/hmdsefi/gograph/blob/master/CONTRIBUTING.md) explains
   where to start.
+- **[lockstep](https://github.com/hmdsefi/lockstep)**: actor framework for Go with
+  deterministic simulation testing built in. You write typed actors with mailboxes,
+  supervision and timers, and the same code runs in `go test` on a seeded simulation that
+  partitions the network, drops messages and crashes nodes, then replays any failure exactly
+  from its seed. <!-- lockstep:start -->[v0.1.0](https://github.com/hmdsefi/lockstep/releases/tag/v0.1.0) shipped on October 25. Next is [v0.2.0 (Phase 2)](https://github.com/hmdsefi/lockstep/milestone/3): Production runtime.<!-- lockstep:end -->
+- **[faultline](https://github.com/hmdsefi/faultline)**: deterministic simulation testing for
+  Go. It runs a distributed system on a simulated network, disk and clock inside `go test`,
+  injects faults like partitions, crashes and failed fsyncs, and replays any failing run
+  exactly from its seed. <!-- faultline:start -->[v0.1.2](https://github.com/hmdsefi/faultline/releases/tag/v0.1.2) shipped on October 19. Next is [Phase 2: Existing-code shims](https://github.com/hmdsefi/faultline/milestone/2).<!-- faultline:end -->
 - **Upstream fixes** in Go infrastructure projects, mostly race conditions, error handling
   and tests that had been switched off. The latest are listed below.
 
@@ -46,12 +51,15 @@ Plus [22 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apubl
 
 ## Projects
 
-- [faultline](https://github.com/hmdsefi/faultline): deterministic simulation testing for Go,
-  with a simulated network, disk and clock and failures you can replay from a seed. Built for
-  AI coding agents and people.
 - [gograph](https://github.com/hmdsefi/gograph): generic graph library for Go. Dependency
   graphs with cycle checks and topological order, traversal, shortest paths, connectivity
   and partitioning, with no dependencies.
+- [lockstep](https://github.com/hmdsefi/lockstep): actor framework for Go with typed actors,
+  supervision and mailboxes, and a seeded simulation in `go test` that replays any failure
+  exactly from its seed.
+- [faultline](https://github.com/hmdsefi/faultline): deterministic simulation testing for Go,
+  with a simulated network, disk and clock and failures you can replay from a seed. Built for
+  AI coding agents and people.
 - [gowl](https://github.com/hmdsefi/gowl): worker pool for Go that also monitors the
   status of each process.
 - [channelize](https://github.com/hmdsefi/channelize): WebSocket framework for outbound

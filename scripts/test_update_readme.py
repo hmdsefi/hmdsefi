@@ -137,6 +137,7 @@ def release(tag, published_at, draft=False, prerelease=False):
 
 def milestone(number, title, due_on, description):
     return {
+        "number": number,
         "title": title,
         "html_url": f"https://github.com/hmdsefi/gograph/milestone/{number}",
         "due_on": due_on,
@@ -189,6 +190,18 @@ class ReleaseStatusTest(unittest.TestCase):
             ur.release_status(release("v0.1.1", "2026-10-19T10:00:00Z"), milestones, with_theme=False).endswith(
                 " Next is [Phase 2: Existing-code shims](https://github.com/hmdsefi/gograph/milestone/1)."
             )
+        )
+
+    def test_undated_milestones_in_creation_order(self):
+        milestones = [
+            milestone(5, "v0.4.0 (Phase 4)", None, "Tooling"),
+            milestone(3, "v0.2.0 (Phase 2)", None, "Production runtime"),
+            milestone(4, "v0.3.0 (Phase 3)", None, "Distribution"),
+        ]
+        self.assertEqual(
+            ur.release_status(release("v0.1.0", "2026-10-25T10:00:00Z"), milestones, with_theme=True),
+            "[v0.1.0](https://github.com/hmdsefi/gograph/releases/tag/v0.1.0) shipped on October 25."
+            " Next is [v0.2.0 (Phase 2)](https://github.com/hmdsefi/gograph/milestone/3): Production runtime.",
         )
 
     def test_no_open_milestones(self):

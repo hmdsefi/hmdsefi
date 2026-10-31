@@ -29,11 +29,12 @@ more than the public activity below.
 ## Recent upstream contributions
 
 <!-- recent-prs:start -->
+- <img src="https://github.com/temporalio.png?size=32" width="16" height="16" alt=""> **temporalio/temporal**
+  - Honor per-namespace businessIDReuseRate overrides ([#12761](https://github.com/temporalio/temporal/pull/12761))
 - <img src="https://github.com/llm-d.png?size=32" width="16" height="16" alt=""> **llm-d/llm-d-router**
   - fix(sidecar): send a failed decode chunk as an SSE error event ([#3555](https://github.com/llm-d/llm-d-router/pull/3555))
   - fix(sidecar): send finish\_reason only on the last streamed decode chunk ([#3553](https://github.com/llm-d/llm-d-router/pull/3553))
   - fix(epp): rank no-hit-lru candidates relative to each other ([#3384](https://github.com/llm-d/llm-d-router/pull/3384))
-  - fix(epp): omit never-scraped endpoints from load-aware-scorer ([#3551](https://github.com/llm-d/llm-d-router/pull/3551))
 - <img src="https://github.com/filecoin-project.png?size=32" width="16" height="16" alt=""> **filecoin-project/lotus**
   - fix(miner): redo precommit when a CommitFailed sector has no CommR or CommD ([#13843](https://github.com/filecoin-project/lotus/pull/13843))
   - fix(sealing): don't require free space to move files already in storage ([#13949](https://github.com/filecoin-project/lotus/pull/13949))
@@ -44,7 +45,7 @@ more than the public activity below.
 - <img src="https://github.com/vllm-project.png?size=32" width="16" height="16" alt=""> **vllm-project/aibrix**
   - \[Bug\] Keep all of a KV cache pod's slot ranges when it owns the first and last slot ([#3240](https://github.com/vllm-project/aibrix/pull/3240))
 
-Plus [22 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
+Plus [21 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests)
 <!-- recent-prs:end -->

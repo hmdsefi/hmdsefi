@@ -18,7 +18,7 @@ more than the public activity below.
   deterministic simulation testing built in. You write typed actors with mailboxes,
   supervision and timers, and the same code runs in `go test` on a seeded simulation that
   partitions the network, drops messages and crashes nodes, then replays any failure exactly
-  from its seed. <!-- lockstep:start -->[v0.1.0](https://github.com/hmdsefi/lockstep/releases/tag/v0.1.0) shipped on October 25. Next is [v0.2.0 (Phase 2)](https://github.com/hmdsefi/lockstep/milestone/3): Production runtime.<!-- lockstep:end -->
+  from its seed. <!-- lockstep:start -->[v0.2.0](https://github.com/hmdsefi/lockstep/releases/tag/v0.2.0) shipped on November 1. Next is [v0.3.0 (Phase 3)](https://github.com/hmdsefi/lockstep/milestone/4): Distribution.<!-- lockstep:end -->
 - **[faultline](https://github.com/hmdsefi/faultline)**: deterministic simulation testing for
   Go. It runs a distributed system on a simulated network, disk and clock inside `go test`,
   injects faults like partitions, crashes and failed fsyncs, and replays any failing run
@@ -45,7 +45,7 @@ more than the public activity below.
 - <img src="https://github.com/vllm-project.png?size=32" width="16" height="16" alt=""> **vllm-project/aibrix**
   - \[Bug\] Keep all of a KV cache pod's slot ranges when it owns the first and last slot ([#3240](https://github.com/vllm-project/aibrix/pull/3240))
 
-Plus [21 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
+Plus [20 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests)
 <!-- recent-prs:end -->

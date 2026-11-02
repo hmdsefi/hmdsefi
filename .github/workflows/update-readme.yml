@@ -8,11 +8,17 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: update-readme
+
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
+      # Without a ref, a re-run checks out the commit of the original run and its push is rejected.
       - uses: actions/checkout@v7
+        with:
+          ref: main
 
       - name: Test the update script
         run: python3 -m unittest discover -s scripts

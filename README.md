@@ -10,7 +10,7 @@ more than the public activity below.
 
 ## Now
 
-- **[gograph](https://github.com/hmdsefi/gograph)**: <!-- gograph:start -->[v0.9.1](https://github.com/hmdsefi/gograph/releases/tag/v0.9.1) shipped on October 26. Next is [v0.10.0](https://github.com/hmdsefi/gograph/milestone/2), due November 17: Foundations and performance.<!-- gograph:end -->
+- **[gograph](https://github.com/hmdsefi/gograph)**: <!-- gograph:start -->[v0.10.0](https://github.com/hmdsefi/gograph/releases/tag/v0.10.0) shipped on November 5. Next is [v0.11.0](https://github.com/hmdsefi/gograph/milestone/3), due December 8: Routes and bounded search.<!-- gograph:end -->
   Contributions are welcome, and
   [CONTRIBUTING.md](https://github.com/hmdsefi/gograph/blob/master/CONTRIBUTING.md) explains
   where to start.
@@ -29,6 +29,10 @@ more than the public activity below.
 ## Recent upstream contributions
 
 <!-- recent-prs:start -->
+- <img src="https://github.com/filecoin-project.png?size=32" width="16" height="16" alt=""> **filecoin-project/lotus**
+  - fix(cli): reject API URLs that already end in the RPC path ([#13870](https://github.com/filecoin-project/lotus/pull/13870))
+  - fix(miner): redo precommit when a CommitFailed sector has no CommR or CommD ([#13843](https://github.com/filecoin-project/lotus/pull/13843))
+  - fix(sealing): don't require free space to move files already in storage ([#13949](https://github.com/filecoin-project/lotus/pull/13949))
 - <img src="https://github.com/temporalio.png?size=32" width="16" height="16" alt=""> **temporalio/temporal**
   - Apply global --datacenter to Cassandra create-keyspace ([#12759](https://github.com/temporalio/temporal/pull/12759))
   - Honor per-namespace businessIDReuseRate overrides ([#12761](https://github.com/temporalio/temporal/pull/12761))
@@ -36,15 +40,11 @@ more than the public activity below.
   - fix(sidecar): send a failed decode chunk as an SSE error event ([#3555](https://github.com/llm-d/llm-d-router/pull/3555))
   - fix(sidecar): send finish\_reason only on the last streamed decode chunk ([#3553](https://github.com/llm-d/llm-d-router/pull/3553))
   - fix(epp): rank no-hit-lru candidates relative to each other ([#3384](https://github.com/llm-d/llm-d-router/pull/3384))
-- <img src="https://github.com/filecoin-project.png?size=32" width="16" height="16" alt=""> **filecoin-project/lotus**
-  - fix(miner): redo precommit when a CommitFailed sector has no CommR or CommD ([#13843](https://github.com/filecoin-project/lotus/pull/13843))
-  - fix(sealing): don't require free space to move files already in storage ([#13949](https://github.com/filecoin-project/lotus/pull/13949))
 - <img src="https://github.com/k8sgpt-ai.png?size=32" width="16" height="16" alt=""> **k8sgpt-ai/k8sgpt**
   - fix: keep the core analyzers when adding or removing filters over MCP ([#1857](https://github.com/k8sgpt-ai/k8sgpt/pull/1857))
   - fix: honor namespace, label and resource filters in the OLM analyzers ([#1859](https://github.com/k8sgpt-ai/k8sgpt/pull/1859))
-  - fix: report the current failure reason for OLM CSVs and Subscriptions ([#1855](https://github.com/k8sgpt-ai/k8sgpt/pull/1855))
 
-Plus [19 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
+Plus [18 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests)
 <!-- recent-prs:end -->

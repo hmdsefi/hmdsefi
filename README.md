@@ -29,6 +29,8 @@ more than the public activity below.
 ## Recent upstream contributions
 
 <!-- recent-prs:start -->
+- <img src="https://github.com/XTLS.png?size=32" width="16" height="16" alt=""> **XTLS/Xray-core**
+  - Inbound: Close and remove the handler when it fails to start ([#7223](https://github.com/XTLS/Xray-core/pull/7223))
 - <img src="https://github.com/temporalio.png?size=32" width="16" height="16" alt=""> **temporalio/temporal**
   - Persist UpdateNamespace requests that only add bad binaries ([#12767](https://github.com/temporalio/temporal/pull/12767))
   - Apply global --datacenter to Cassandra create-keyspace ([#12759](https://github.com/temporalio/temporal/pull/12759))
@@ -36,7 +38,6 @@ more than the public activity below.
 - <img src="https://github.com/filecoin-project.png?size=32" width="16" height="16" alt=""> **filecoin-project/lotus**
   - fix(cli): reject API URLs that already end in the RPC path ([#13870](https://github.com/filecoin-project/lotus/pull/13870))
   - fix(miner): redo precommit when a CommitFailed sector has no CommR or CommD ([#13843](https://github.com/filecoin-project/lotus/pull/13843))
-  - fix(sealing): don't require free space to move files already in storage ([#13949](https://github.com/filecoin-project/lotus/pull/13949))
 - <img src="https://github.com/llm-d.png?size=32" width="16" height="16" alt=""> **llm-d/llm-d-router**
   - fix(sidecar): send a failed decode chunk as an SSE error event ([#3555](https://github.com/llm-d/llm-d-router/pull/3555))
   - fix(sidecar): send finish\_reason only on the last streamed decode chunk ([#3553](https://github.com/llm-d/llm-d-router/pull/3553))
@@ -44,7 +45,7 @@ more than the public activity below.
 - <img src="https://github.com/k8sgpt-ai.png?size=32" width="16" height="16" alt=""> **k8sgpt-ai/k8sgpt**
   - fix: keep the core analyzers when adding or removing filters over MCP ([#1857](https://github.com/k8sgpt-ai/k8sgpt/pull/1857))
 
-Plus [17 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
+Plus [15 more in review](https://github.com/search?q=is%3Apr+is%3Aopen+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests).
 
 [All my merged pull requests to other projects](https://github.com/search?q=is%3Apr+is%3Amerged+is%3Apublic+author%3Ahmdsefi+-user%3Ahmdsefi+-repo%3AGreedyC%2Fgograph+-repo%3Aabhijeetnardele24-hash%2Fgograph&type=pullrequests)
 <!-- recent-prs:end -->

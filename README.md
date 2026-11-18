@@ -10,7 +10,7 @@ more than the public activity below.
 
 ## Now
 
-- **[gograph](https://github.com/hmdsefi/gograph)**: <!-- gograph:start -->[v0.10.0](https://github.com/hmdsefi/gograph/releases/tag/v0.10.0) shipped on November 5. Next is [v0.11.0](https://github.com/hmdsefi/gograph/milestone/3), due December 8: Routes and bounded search.<!-- gograph:end -->
+- **[gograph](https://github.com/hmdsefi/gograph)**: <!-- gograph:start -->[v0.11.0](https://github.com/hmdsefi/gograph/releases/tag/v0.11.0) shipped on November 17. Next is [v0.12.0](https://github.com/hmdsefi/gograph/milestone/4), due January 12: Structure and ordering.<!-- gograph:end -->
   Contributions are welcome, and
   [CONTRIBUTING.md](https://github.com/hmdsefi/gograph/blob/master/CONTRIBUTING.md) explains
   where to start.
